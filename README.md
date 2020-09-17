@@ -12,7 +12,11 @@ I went through several steps to scrub my data into a usable format.  First, I re
 In the process of performing EDA, I discovered that many of the Draft Combine measurements were very similar and highly correlated.  While the types of modeling that I used for this project did not necessitate removing correlated variables, this insight informed my expectations for number of influential features in my modeling.  I also discovered that many features had non-linear relationships with probability of success in the NBA.  Once again, the types of modeling that I used did not necessitate linear relationships between independent and dependent variables, so I did not attempt to make these relationships linear.
 
 ## Model Data
-I used Precision as my principle evaluation metric in order to determine the model that would maximize the probability of selecting a succesful NBA draftee.  I used an 80/20 Train Test Split to validate my models.  My first model, K Nearest Neighbor, had a Precision of .45.  I improved upon this with Logistic Regression, which produced a Precision of .50.  My top performing model a Random Forest model using Gridsearch CV, which had a Precision of .52.  Random Forest also produced an Accuracy of .67 and an F1 score of .44.
+I used Precision as my principle evaluation metric in order to determine the model that would maximize the probability of selecting a succesful NBA draftee.  I used an 80/20 Train Test Split to validate my models.  A Stratified Dummy Regressor produced a Testing Precision of .23.  My next model, K Nearest Neighbor, had a Precision of .45.  I improved upon this with Logistic Regression, which produced a Precision of .50.  My top performing model a Random Forest model using Gridsearch CV, which had a Precision of .52.  Random Forest also produced an Accuracy of .67 and an F1 score of .44.
+
+## Analyze Results
+The top performing model, Random Forest, was useful in predicting the career success of NBA draftees.  Its precision of .52 outperformed the Dummy Regressor testing set Precision of .23 and was higher than the 25.7% percent of datapoints that were part of the positive class.
+
 
 ## Next steps
 With more time, I would like to train an XGBoost model, which while more computationally expensive has the potential to produce better results than my existing models.  I would also like to explore creating additional feature interactions to see if these can improve performance.
